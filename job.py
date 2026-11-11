@@ -72,7 +72,9 @@ def side_of(t):
 
 
 def owner_of(code):
-    return {"SP": "Spouse", "JT": "Joint", "DC": "Child", "": "Self", "SELF": "Self"}.get((code or "").strip().upper(), (code or "").strip().title() or "Self")
+    c = (code or "").strip().upper()
+    return {"SP": "Spouse", "SPOUSE": "Spouse", "JT": "Joint", "JOINT": "Joint", "DC": "Child", "CHILD": "Child",
+            "DEPENDENT CHILD": "Child"}.get(c, "Self")
 
 
 def iso(d):
